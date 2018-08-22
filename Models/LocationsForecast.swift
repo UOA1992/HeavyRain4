@@ -83,6 +83,63 @@ public struct Location: Codable {
     var temperature:String = "-"
 }
 
+struct WeatherResponse: Codable {
+    var weather:[WeatherInfoVO]
+    var visibility:Int
+    var wind:WindVO
+    var time:Int
+    var name:String
+    var id:Int
+    var responseCode:Int
+    var forecast:WeatherVO
+    
+    enum CodingKeys: String, CodingKey
+    {
+        case weather
+        case visibility
+        case wind
+        case time = "dt"
+        case name
+        case id
+        case responseCode = "cod"
+        case forecast = "main"
+    }
+}
+
+struct WeatherVO: Codable {
+    var temperature:Double
+    var pressure:Int
+    var humidity:Int
+    var minTemperature:Double
+    var maxTemperature:Double
+    
+    enum CodingKeys: String, CodingKey
+    {
+        case temperature = "temp"
+        case pressure
+        case humidity
+        case minTemperature = "temp_min"
+        case maxTemperature = "temp_max"
+    }
+}
+
+struct WeatherInfoVO: Codable {
+    var id:Int
+    var main:String
+    var description:String
+    var icon:String
+}
+
+struct WindVO: Codable {
+    var speed:Double
+    var degree: Double
+    
+    enum CodingKeys: String, CodingKey
+    {
+        case speed
+        case degree = "deg"
+    }
+}
 //get list of all possible locations
 extension Country {
     static public func getHardcodedData() -> [Country] {

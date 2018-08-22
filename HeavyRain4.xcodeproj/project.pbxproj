@@ -21,9 +21,14 @@
 		DBAFB9CB212DB5CC002FE212 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAFB9CA212DB5CC002FE212 /* FavoritesViewController.swift */; };
 		DBAFB9CD212DB5E6002FE212 /* PlacesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAFB9CC212DB5E6002FE212 /* PlacesViewController.swift */; };
 		DBAFB9CF212DB5FB002FE212 /* ZoomInSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAFB9CE212DB5FB002FE212 /* ZoomInSegue.swift */; };
+		DBAFB9D3212E25AA002FE212 /* ForecastStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAFB9D2212E25AA002FE212 /* ForecastStore.swift */; };
+		F5273ADE41F4D409F1672ECB /* Pods_HeavyRain4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A73233F0CC36800DBCADF76 /* Pods_HeavyRain4.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3828A362AFD2369ED1AA9A05 /* Pods-HeavyRain4.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HeavyRain4.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HeavyRain4/Pods-HeavyRain4.debug.xcconfig"; sourceTree = "<group>"; };
+		5A73233F0CC36800DBCADF76 /* Pods_HeavyRain4.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HeavyRain4.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		797454E944381F7006F73604 /* Pods-HeavyRain4.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HeavyRain4.release.xcconfig"; path = "Pods/Target Support Files/Pods-HeavyRain4/Pods-HeavyRain4.release.xcconfig"; sourceTree = "<group>"; };
 		DBAFB9A2212B6BC2002FE212 /* HeavyRain4.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HeavyRain4.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBAFB9A5212B6BC2002FE212 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DBAFB9A7212B6BC2002FE212 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -40,6 +45,7 @@
 		DBAFB9CA212DB5CC002FE212 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		DBAFB9CC212DB5E6002FE212 /* PlacesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesViewController.swift; sourceTree = "<group>"; };
 		DBAFB9CE212DB5FB002FE212 /* ZoomInSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomInSegue.swift; sourceTree = "<group>"; };
+		DBAFB9D2212E25AA002FE212 /* ForecastStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,12 +53,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F5273ADE41F4D409F1672ECB /* Pods_HeavyRain4.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6755E99D03D4B31AF299B64D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3828A362AFD2369ED1AA9A05 /* Pods-HeavyRain4.debug.xcconfig */,
+				797454E944381F7006F73604 /* Pods-HeavyRain4.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		8386509161C21FFC5EBE97B8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5A73233F0CC36800DBCADF76 /* Pods_HeavyRain4.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		DBAFB999212B6BC2002FE212 = {
 			isa = PBXGroup;
 			children = (
@@ -62,6 +86,8 @@
 				DBAFB9B9212B6BE2002FE212 /* Support Files */,
 				DBAFB9B7212B6BCF002FE212 /* ViewControllers */,
 				DBAFB9A3212B6BC2002FE212 /* Products */,
+				6755E99D03D4B31AF299B64D /* Pods */,
+				8386509161C21FFC5EBE97B8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -119,6 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				DBAFB9BE212B8441002FE212 /* LocationsForecast.swift */,
+				DBAFB9D2212E25AA002FE212 /* ForecastStore.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -130,9 +157,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DBAFB9B4212B6BC3002FE212 /* Build configuration list for PBXNativeTarget "HeavyRain4" */;
 			buildPhases = (
+				E691806A359030EE7D75E384 /* [CP] Check Pods Manifest.lock */,
 				DBAFB99E212B6BC2002FE212 /* Sources */,
 				DBAFB99F212B6BC2002FE212 /* Frameworks */,
 				DBAFB9A0212B6BC2002FE212 /* Resources */,
+				D80E988078CA7F7291715C07 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -190,6 +219,45 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		D80E988078CA7F7291715C07 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-HeavyRain4/Pods-HeavyRain4-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HeavyRain4/Pods-HeavyRain4-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E691806A359030EE7D75E384 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HeavyRain4-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		DBAFB99E212B6BC2002FE212 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -200,6 +268,7 @@
 				DBAFB9C9212DB5A8002FE212 /* PlacesViewCell.swift in Sources */,
 				DBAFB9CB212DB5CC002FE212 /* FavoritesViewController.swift in Sources */,
 				DBAFB9A6212B6BC2002FE212 /* AppDelegate.swift in Sources */,
+				DBAFB9D3212E25AA002FE212 /* ForecastStore.swift in Sources */,
 				DBAFB9BF212B8441002FE212 /* LocationsForecast.swift in Sources */,
 				DBAFB9C7212DB599002FE212 /* FavoriteViewCell.swift in Sources */,
 				DBAFB9CF212DB5FB002FE212 /* ZoomInSegue.swift in Sources */,
@@ -346,6 +415,7 @@
 		};
 		DBAFB9B5212B6BC3002FE212 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3828A362AFD2369ED1AA9A05 /* Pods-HeavyRain4.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -364,6 +434,7 @@
 		};
 		DBAFB9B6212B6BC3002FE212 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 797454E944381F7006F73604 /* Pods-HeavyRain4.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
