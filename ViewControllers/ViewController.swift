@@ -10,13 +10,19 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    var model: LocationForecast?
+    @IBAction func onFavoritesClicked(_ sender: Any) {
+        performSegue(withIdentifier: "showFavorites", sender: sender)
+    }
     
+    var model:LocationForecast?
     //details outlet
     @IBOutlet weak var details: UICollectionView!
     @IBOutlet weak var nextDays: UITableView!
+    @IBOutlet weak var city: UILabel!
+    @IBOutlet weak var cityWeather: UILabel!
+    @IBOutlet weak var temperature: UILabel!
     
-    var forecast : [Forecast] = []
+    var forecast:[Forecast] = []
     var degreeSymbol = "°"
     
     let collectionViewFormatter = DateFormatter()
@@ -25,15 +31,19 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-       //fill the model with mock data
+        //fill the model with mock data
         model = LocationForecast.getTestData()
         
         collectionViewFormatter.dateFormat = "H:mm"
         tableViewFormatter.dateFormat = "EEEE"
+        //out class implements the correct protocols
         
-        //out class implements the correct protocols in extensions
         details.dataSource = self
         nextDays.dataSource = self
+        //handle the case if the location has no name
+        city.text = model?.location?.name ?? "???"
+        cityWeather.text = model?.weather ?? "???"
+        temperature.text = getCurrentTemperature()
     }
     
     // MARK: Helper function
@@ -53,16 +63,34 @@ class ViewController: UIViewController {
         return lastTemperature
     }
     
-    //Mark: private
-    fileprivate func getIcon(weather: String) -> UIImage? {
-        return nil 
+    // MARK: private
+    fileprivate func getIcon(weather:String) -> UIImage? {
+        return LocationForecast.getImageFor(weather:weather)
     }
     
-    @IBAction func onFavoritesClicked(_ sender:  Any)  {
-        performSegue(withIdentifier: "showFavorites",
-            sender: sender)
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let id = segue.identifier {
+            switch id {
+            case "showFavorites":
+                guard let favVC: FavoritesViewController = segue.destination as? FavoritesViewController else {
+                    return
+                }
+                favVC.receivedData = 42
+            default:
+                break;
+            }
+        }
     }
+    
+    @IBAction func unwindToHomeScreen(sender: UIStoryboardSegue) {
+        if let favVC = sender.source as? FavoritesViewController {
+            model = LocationForecast()
+            model?.location = favVC.selectedItem
+        }
+    }
+    
 }
+
 extension ViewController: UICollectionViewDataSource {
     public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return model?.forecastForToday?.count ?? 0
@@ -82,6 +110,7 @@ extension ViewController: UICollectionViewDataSource {
         
     }
 }
+
 extension ViewController: UITableViewDataSource {
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return model?.forecastForNextDays?.count ?? 0
@@ -100,7 +129,7 @@ extension ViewController: UITableViewDataSource {
         return cell
     }
 }
-    
+
 
   
 

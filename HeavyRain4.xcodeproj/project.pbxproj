@@ -16,7 +16,11 @@
 		DBAFB9BF212B8441002FE212 /* LocationsForecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAFB9BE212B8441002FE212 /* LocationsForecast.swift */; };
 		DBAFB9C1212B8C1A002FE212 /* DailyForecastViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAFB9C0212B8C1A002FE212 /* DailyForecastViewCell.swift */; };
 		DBAFB9C3212B8CD4002FE212 /* WeatherViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAFB9C2212B8CD4002FE212 /* WeatherViewCell.swift */; };
-		DBAFB9C5212CD740002FE212 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAFB9C4212CD740002FE212 /* Extensions.swift */; };
+		DBAFB9C7212DB599002FE212 /* FavoriteViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAFB9C6212DB598002FE212 /* FavoriteViewCell.swift */; };
+		DBAFB9C9212DB5A8002FE212 /* PlacesViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAFB9C8212DB5A8002FE212 /* PlacesViewCell.swift */; };
+		DBAFB9CB212DB5CC002FE212 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAFB9CA212DB5CC002FE212 /* FavoritesViewController.swift */; };
+		DBAFB9CD212DB5E6002FE212 /* PlacesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAFB9CC212DB5E6002FE212 /* PlacesViewController.swift */; };
+		DBAFB9CF212DB5FB002FE212 /* ZoomInSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAFB9CE212DB5FB002FE212 /* ZoomInSegue.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,7 +35,11 @@
 		DBAFB9BE212B8441002FE212 /* LocationsForecast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsForecast.swift; sourceTree = "<group>"; };
 		DBAFB9C0212B8C1A002FE212 /* DailyForecastViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyForecastViewCell.swift; sourceTree = "<group>"; };
 		DBAFB9C2212B8CD4002FE212 /* WeatherViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewCell.swift; sourceTree = "<group>"; };
-		DBAFB9C4212CD740002FE212 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		DBAFB9C6212DB598002FE212 /* FavoriteViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewCell.swift; sourceTree = "<group>"; };
+		DBAFB9C8212DB5A8002FE212 /* PlacesViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesViewCell.swift; sourceTree = "<group>"; };
+		DBAFB9CA212DB5CC002FE212 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
+		DBAFB9CC212DB5E6002FE212 /* PlacesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesViewController.swift; sourceTree = "<group>"; };
+		DBAFB9CE212DB5FB002FE212 /* ZoomInSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomInSegue.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,7 +77,9 @@
 			isa = PBXGroup;
 			children = (
 				DBAFB9A7212B6BC2002FE212 /* ViewController.swift */,
-				DBAFB9C4212CD740002FE212 /* Extensions.swift */,
+				DBAFB9CA212DB5CC002FE212 /* FavoritesViewController.swift */,
+				DBAFB9CC212DB5E6002FE212 /* PlacesViewController.swift */,
+				DBAFB9CE212DB5FB002FE212 /* ZoomInSegue.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -79,6 +89,8 @@
 			children = (
 				DBAFB9C0212B8C1A002FE212 /* DailyForecastViewCell.swift */,
 				DBAFB9C2212B8CD4002FE212 /* WeatherViewCell.swift */,
+				DBAFB9C6212DB598002FE212 /* FavoriteViewCell.swift */,
+				DBAFB9C8212DB5A8002FE212 /* PlacesViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -183,10 +195,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DBAFB9CD212DB5E6002FE212 /* PlacesViewController.swift in Sources */,
 				DBAFB9A8212B6BC2002FE212 /* ViewController.swift in Sources */,
-				DBAFB9C5212CD740002FE212 /* Extensions.swift in Sources */,
+				DBAFB9C9212DB5A8002FE212 /* PlacesViewCell.swift in Sources */,
+				DBAFB9CB212DB5CC002FE212 /* FavoritesViewController.swift in Sources */,
 				DBAFB9A6212B6BC2002FE212 /* AppDelegate.swift in Sources */,
 				DBAFB9BF212B8441002FE212 /* LocationsForecast.swift in Sources */,
+				DBAFB9C7212DB599002FE212 /* FavoriteViewCell.swift in Sources */,
+				DBAFB9CF212DB5FB002FE212 /* ZoomInSegue.swift in Sources */,
 				DBAFB9C3212B8CD4002FE212 /* WeatherViewCell.swift in Sources */,
 				DBAFB9C1212B8C1A002FE212 /* DailyForecastViewCell.swift in Sources */,
 			);
