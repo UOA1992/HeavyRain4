@@ -8,19 +8,21 @@
 
 import Foundation
 import UIKit
+import Alamofire 
 
 class ForecastStore {
-    public static let instance:ForecastStore = ForecastStore ()
+    public static let instance:ForecastStore = ForecastStore()
     enum LoadingError {
         case invalidCity
         case noConnection
         case invalidURL
         case wrongResponse
     }
-    static let WEATHER_API = "https://api.openweathermap.org/data/2.5/weather"
-    static let WEATHER_API_QUERY = "?appid=0356f0d8e9865300021b8b2ba08ee811cb&units=imperial"
     
-    private init(){
+    static let WEATHER_API = "https://api.openweathermap.org/data/2.5/weather"
+    static let WEATHER_API_QUERY = "?appid=b9c42822d232ff6d3fe31938d37090cb&units=metric"
+    
+    private init() {
         print("initialization goes here")
     }
     
@@ -61,6 +63,45 @@ class ForecastStore {
                 }
             }
             task.resume()
+        }
+    }
+    
+    func loadForecastAlamofire(for city:City, callback: @escaping (WeatherResponse?, LoadingError?) -> ()) {
+        guard let cityId = city.id else {
+            callback(nil, LoadingError.invalidCity)
+            return
+        }
+        
+        let urlString = ForecastStore.WEATHER_API
+            + ForecastStore.WEATHER_API_QUERY + "&id=" + String(describing: cityId)
+        
+        Alamofire.request(urlString).responseJSON { response in
+            //debug
+            print("Request: \(String(describing: response.request))")
+            print("Response: \(String(describing: response.response))")
+            print("Result: \(response.result)")
+            if let json = response.result.value {
+                print("JSON: \(json)") // serialized json response
+            }
+            
+            guard let data = response.data else {
+                callback(nil, LoadingError.wrongResponse)
+                return
+            }
+            do {
+                //debug
+                let rawData = String(data: data, encoding: String.Encoding.utf8)
+                print(rawData)
+                
+                let decoder = JSONDecoder()
+                let responseModel = try decoder.decode(WeatherResponse.self, from: data)
+                print(responseModel.name)
+                callback(responseModel, nil)
+            } catch let err {
+                print("Error", err)
+                callback(nil, LoadingError.wrongResponse)
+            }
+            
         }
     }
 }
